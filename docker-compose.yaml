@@ -1,0 +1,11 @@
+version: "3"
+services:
+  phpserver:
+    image: moldato/php:7.3-apache
+    container_name: pagbank-app
+    build:
+      context: ./
+    volumes:
+      - ".:/var/www/html"
+    ports: 
+      - "3000:80"

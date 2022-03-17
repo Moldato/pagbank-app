@@ -1,0 +1,26 @@
+{
+  "name": "moldato/pagbank-app",
+  "description": "Application to use PagBank-SDK-PHP",
+  "type": "application",
+  "license": "MIT",
+  "autoload": {
+      "psr-4": {
+          "Moldato\\App\\": "src/"
+      }
+  },
+  "authors": [
+      {
+          "name": "Moldato Technological Solutions",
+          "email": "contato@moldato.com"
+      }
+  ],
+  "minimum-stability": "dev",
+  "config": {
+      "platform": {
+          "php":"7.3"
+      }
+  },
+  "require": {
+      "phpunit/phpunit": "9"
+  }
+}
