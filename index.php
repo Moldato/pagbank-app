@@ -1,7 +1,6 @@
 <?php
+require __DIR__ . '/vendor/autoload.php';
 
-require __DIR__.'/vendor/autoload.php';
+use App\Controller\Pages\Checkout;
 
-use Moldato\App\Controller\Pages\Home;
-
-echo Home::getHome();
+echo Checkout::getCheckout();
