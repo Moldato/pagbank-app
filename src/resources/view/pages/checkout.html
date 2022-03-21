@@ -1,2 +1,36 @@
 <h2>{{name}}</h2>
 <p><strong>{{description}}</strong></p>
+<hr />
+<h2>Hash do Vendedor </h2>
+<span id="senderHash"></span>
+<h2>Encryptar Cartão </h2>
+<span id="cardHash"></span>
+</form>
+
+<script>
+  var senderHash = null;
+  var cardHash = null;
+  PagSeguroDirectPayment.onSenderHashReady(function (response) {
+    if (response.status == 'error') {
+      console.log(response.message);
+      return false;
+    }
+    senderHash = response.senderHash;
+    document.getElementById('senderHash').textContent=senderHash
+  });
+
+  PagSeguroDirectPayment.createCardToken({
+    cardNumber: '4111111111111111', // Número do cartão de crédito
+    brand: 'visa', // Bandeira do cartão
+    cvv: '013', // CVV do cartão
+    expirationMonth: '12', // Mês da expiração do cartão
+    expirationYear: '2026', // Ano da expiração do cartão, é necessário os 4 dígitos.
+    success: function (response) {
+      cardHash = response?.card?.token || null;
+      document.getElementById('cardHash').textContent=cardHash
+    },
+    error: function (response) {
+      console.error('Nao foi possível carregar o hash do cartao');
+    }
+  });
+</script>

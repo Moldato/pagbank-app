@@ -30,6 +30,15 @@
         "test": "@php -d xdebug.remote_autostart=Off -d xdebug.remote_enable=Off vendor/bin/phpunit --no-coverage",
         "test:coverage": "@php -d xdebug.remote_autostart=Off -d xdebug.remote_enable=Off vendor/bin/phpunit"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/Moldato/pagbank-sdk-php"
+        }
+    ],
+    "require": {
+        "moldato/pagbank-sdk-php": "@dev"
+    },
     "require-dev": {
         "phpunit/phpunit": "9",
         "guzzlehttp/guzzle": "^7.0"
